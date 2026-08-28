@@ -257,11 +257,25 @@
            PROFILE IMAGE
         ========================== */
 
-        .profile-image {
-            flex: 1;
+        <div class="profile-picture">
+    <img src="profile.jpg" alt="My Profile Picture">
+</div>
+.profile-picture {
+    width: 450px;
+    height: 450px;
+    margin: 50px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 18px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
 
-            display: flex;
-            justify-content: center;
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
         }
 
         .profile-image img {
