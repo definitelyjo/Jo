@@ -1,6 +1,3 @@
-# Personal Profile Website — HTML & CSS
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +7,24 @@
     <title>MY PORTFOLIO</title>
 
     <style>
-        /* =========================
-           GENERAL STYLE
-        ========================== */
+        /* =========================================================
+           BLACK, WHITE & LIGHT PINK PERSONAL PORTFOLIO
+           ========================================================= */
+
+        :root {
+            --black: #050505;
+            --dark: #111111;
+            --dark-gray: #1b1b1b;
+            --gray: #777;
+            --light-gray: #d9d9d9;
+            --white: #ffffff;
+
+            /* LIGHT PINK COLORS */
+            --pink: #fff1f6;
+            --pink-light: #fff8fb;
+            --pink-soft: #ffeaf2;
+            --pink-dark: #f8d7e3;
+        }
 
         * {
             margin: 0;
@@ -23,9 +35,9 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
+            background: var(--pink);
+            color: var(--black);
+            line-height: 1.7;
         }
 
         a {
@@ -33,44 +45,79 @@
             color: inherit;
         }
 
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+
         /* =========================
-           NAVIGATION BAR
+           NAVIGATION
         ========================== */
 
         nav {
             width: 100%;
-            background: #111827;
-            color: white;
+            background: rgba(5, 5, 5, 0.96);
+            color: var(--white);
             padding: 18px 8%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             position: sticky;
             top: 0;
             z-index: 1000;
+
+            border-bottom: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .logo {
             font-size: 24px;
-            font-weight: bold;
-            color: #60a5fa;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--white);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 28px;
         }
 
         .nav-links a {
-            color: white;
+            color: #fff;
             font-size: 15px;
+            font-weight: 600;
+
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--white);
+
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #60a5fa;
+            color: #ccc;
         }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
 
         /* =========================
            HERO SECTION
@@ -78,20 +125,56 @@
 
         .hero {
             min-height: 90vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 50px 8%;
-            background: linear-gradient(135deg, #dbeafe, #f8fafc);
+
+            padding: 70px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #f8d7e3 0,
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff8fb 0%,
+                    #ffeaf2 100%
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border: 1px solid #cfcfcf;
+            border-radius: 50%;
+
+            right: -160px;
+            bottom: -180px;
         }
 
         .hero-container {
             max-width: 1100px;
             width: 100%;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 50px;
+
+            gap: 70px;
+
+            position: relative;
+            z-index: 1;
         }
 
         .hero-text {
@@ -99,42 +182,76 @@
         }
 
         .hero-text h4 {
-            color: #2563eb;
-            font-size: 20px;
-            margin-bottom: 10px;
+            color: #555;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .hero-text h1 {
-            font-size: 55px;
-            color: #111827;
-            margin-bottom: 10px;
+            font-size: 58px;
+
+            line-height: 1.1;
+
+            color: var(--black);
+
+            margin-bottom: 18px;
+
+            font-weight: 800;
         }
 
         .hero-text h1 span {
-            color: #2563eb;
+            color: var(--black);
+
+            border-bottom: 5px solid var(--black);
         }
 
         .hero-text p {
             font-size: 18px;
-            color: #4b5563;
-            max-width: 550px;
-            margin-bottom: 25px;
+
+            color: #555;
+
+            max-width: 600px;
+
+            margin-bottom: 30px;
         }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
-            background: #2563eb;
-            color: white;
-            border-radius: 30px;
+
+            padding: 13px 27px;
+
+            background: var(--black);
+            color: var(--white);
+
+            border: 2px solid var(--black);
+
+            border-radius: 5px;
+
             font-weight: bold;
+
             transition: 0.3s;
         }
 
         .btn:hover {
-            background: #1d4ed8;
+            background: var(--white);
+            color: var(--black);
+
             transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
         }
+
 
         /* =========================
            PROFILE IMAGE
@@ -142,40 +259,62 @@
 
         .profile-image {
             flex: 1;
+
             display: flex;
             justify-content: center;
         }
 
         .profile-image img {
-            width: 300px;
-            height: 300px;
+            width: 310px;
+            height: 310px;
+
             object-fit: cover;
+
             border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+            border: 8px solid var(--black);
+
+            box-shadow:
+                14px 14px 0 #bdbdbd;
+
+            filter: grayscale(100%);
         }
 
+
         /* =========================
-           SECTION STYLE
+           GENERAL SECTION
         ========================== */
 
         section {
-            padding: 80px 8%;
+            padding: 90px 8%;
+        }
+
+        section:nth-of-type(even) {
+            background: #ffe7f0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 35px;
-            color: #111827;
+            font-size: 38px;
+
+            color: var(--black);
+
+            margin-bottom: 5px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
         }
 
         .section-title p {
-            color: #6b7280;
+            color: #777;
         }
+
 
         /* =========================
            ABOUT ME
@@ -183,61 +322,95 @@
 
         .about-container {
             max-width: 1000px;
+
             margin: auto;
-            background: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            background: var(--white);
+
+            padding: 40px;
+
+            border: 2px solid var(--black);
+
+            border-radius: 10px;
+
+            box-shadow:
+                10px 10px 0 #d0d0d0;
+
             text-align: center;
         }
 
         .about-container p {
-            color: #555;
+            color: #444;
+
             font-size: 17px;
         }
+
 
         /* =========================
            AGILE SECTION
         ========================== */
 
         .agile-section {
-            background: #111827;
-            color: white;
+            background: var(--black) !important;
+
+            color: var(--white);
         }
 
         .agile-section .section-title h2 {
-            color: white;
+            color: var(--white);
         }
 
         .agile-section .section-title p {
-            color: #d1d5db;
+            color: #bdbdbd;
+
+            max-width: 850px;
+
+            margin: auto;
         }
 
         .agile-container {
             max-width: 1100px;
+
             margin: auto;
+
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 20px;
         }
 
         .agile-card {
-            background: #1f2937;
-            padding: 30px 20px;
-            border-radius: 15px;
+            background: #111;
+
+            padding: 32px 20px;
+
+            border-radius: 8px;
+
             text-align: center;
+
             transition: 0.3s;
-            border: 1px solid #374151;
+
+            border: 1px solid #444;
         }
 
         .agile-card:hover {
             transform: translateY(-8px);
-            background: #2563eb;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            border-color: var(--white);
         }
 
         .agile-icon {
             font-size: 40px;
+
             margin-bottom: 15px;
+
+            filter: grayscale(100%);
         }
 
         .agile-card h3 {
@@ -246,8 +419,14 @@
 
         .agile-card p {
             font-size: 14px;
-            color: #d1d5db;
+
+            color: #bbb;
         }
+
+        .agile-card:hover p {
+            color: #444;
+        }
+
 
         /* =========================
            HOBBIES
@@ -255,38 +434,68 @@
 
         .cards {
             max-width: 1100px;
+
             margin: auto;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
         .card {
-            background: white;
-            padding: 30px;
+            background: var(--white);
+
+            padding: 35px 30px;
+
             text-align: center;
-            border-radius: 18px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            border: 2px solid #111;
+
+            border-radius: 10px;
+
+            box-shadow:
+                8px 8px 0 #d0d0d0;
+
             transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-8px);
+
+            background: var(--black);
+
+            color: var(--white);
+
+            box-shadow:
+                8px 8px 0 #888;
         }
 
         .card-icon {
             font-size: 45px;
+
             margin-bottom: 15px;
+
+            filter: grayscale(100%);
         }
 
         .card h3 {
             margin-bottom: 10px;
-            color: #111827;
+
+            color: var(--black);
         }
 
         .card p {
-            color: #6b7280;
+            color: #666;
         }
+
+        .card:hover h3,
+        .card:hover p {
+            color: var(--white);
+        }
+
 
         /* =========================
            SKILLS
@@ -294,39 +503,69 @@
 
         .skills-container {
             max-width: 900px;
+
             margin: auto;
         }
 
         .skill {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
         .skill-info {
             display: flex;
+
             justify-content: space-between;
-            margin-bottom: 8px;
+
+            margin-bottom: 9px;
+
             font-weight: bold;
         }
 
         .progress {
-            height: 12px;
-            background: #e5e7eb;
+            height: 13px;
+
+            background: #f7d6e2;
+
+            border: 1px solid #c9a7b4;
+
             border-radius: 20px;
+
             overflow: hidden;
         }
 
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #2563eb, #60a5fa);
+
+            background: var(--black);
+
             border-radius: 20px;
+
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 8px,
+                    rgba(255,255,255,0.12) 8px,
+                    rgba(255,255,255,0.12) 16px
+                );
         }
 
         .html {
-            width: 90%;
+            width: 80%;
         }
 
         .css {
-            width: 85%;
+            width: 80%;
         }
 
         .javascript {
@@ -337,48 +576,70 @@
             width: 65%;
         }
 
+
         /* =========================
            INTERESTS
         ========================== */
 
         .interest-container {
             max-width: 1000px;
+
             margin: auto;
+
             display: flex;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             gap: 15px;
         }
 
         .interest {
-            background: white;
-            padding: 15px 25px;
+            background: var(--white);
+
+            padding: 14px 24px;
+
+            border: 2px solid var(--black);
+
             border-radius: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            color: #374151;
+
+            color: var(--black);
+
             transition: 0.3s;
+
+            font-weight: 600;
         }
 
         .interest:hover {
-            background: #2563eb;
-            color: white;
-            transform: scale(1.05);
+            background: var(--black);
+
+            color: var(--white);
+
+            transform: translateY(-4px);
         }
 
+
         /* =========================
-           CONTACT / FOOTER
+           FOOTER
         ========================== */
 
         footer {
-            background: #111827;
-            color: white;
+            background: var(--black);
+
+            color: var(--white);
+
             text-align: center;
-            padding: 30px 10px;
+
+            padding: 35px 10px;
+
+            border-top: 1px solid #333;
         }
 
         footer p {
-            color: #d1d5db;
+            color: #ccc;
         }
+
 
         /* =========================
            RESPONSIVE DESIGN
@@ -388,42 +649,50 @@
 
             .hero-container {
                 flex-direction: column-reverse;
+
                 text-align: center;
             }
 
             .hero-text p {
                 margin-left: auto;
+
                 margin-right: auto;
             }
 
             .hero-text h1 {
-                font-size: 42px;
+                font-size: 44px;
             }
 
             .agile-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .cards {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
         }
+
 
         @media (max-width: 600px) {
 
             nav {
                 flex-direction: column;
-                gap: 12px;
+
+                gap: 15px;
             }
 
             .nav-links {
-                gap: 12px;
+                gap: 14px;
+
                 flex-wrap: wrap;
+
                 justify-content: center;
             }
 
             .hero {
-                padding: 50px 5%;
+                padding: 55px 5%;
             }
 
             .profile-image img {
@@ -435,41 +704,68 @@
                 font-size: 35px;
             }
 
-            .agile-container {
-                grid-template-columns: 1fr;
+            .hero-text h1 span {
+                border-bottom-width: 3px;
             }
 
+            .agile-container,
             .cards {
                 grid-template-columns: 1fr;
             }
 
             section {
-                padding: 60px 5%;
+                padding: 65px 5%;
             }
 
             .section-title h2 {
-                font-size: 28px;
+                font-size: 29px;
+            }
+
+            .about-container {
+                padding: 28px 20px;
             }
         }
     </style>
 </head>
 
+
 <body>
+
 
     <!-- =========================
          NAVIGATION
     ========================== -->
 
     <nav>
-        <div class="logo">MY PORFOLIO</div>
+
+        <div class="logo">
+            MY PORFOLIO
+        </div>
 
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#interests">Interest</a></li>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#hobbies">Hobbies</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#interests">Interest</a>
+            </li>
+
         </ul>
+
     </nav>
 
 
@@ -481,12 +777,18 @@
 
         <div class="hero-container">
 
+
             <div class="hero-text">
 
-                <h4>Hello, I'm Jo</h4>
+                <h4>
+                    Hello, I'm Jo
+                </h4>
 
-                <!-- PALITAN ANG NAME -->
-                <h1><span>Computer science student</span></h1
+                <h1>
+                    <span>
+                        Computer science student
+                    </span>
+                </h1>
 
                 <p>
                     Welcome to my personal porfolio.
@@ -503,13 +805,20 @@
 
             <div class="profile-image">
 
-                <!-- PALITAN ANG PICTURE -->
-                <!-- Ilagay ang picture sa parehong folder
-                     at palitan ang filename -->
+                <!--
+                    PALITAN ANG PICTURE
 
-                <img src="profile.jpg" alt="My Profile Picture">
+                    Ilagay ang profile.jpg sa parehong folder
+                    ng HTML file.
+                -->
+
+                <img
+                    src="profile.jpg"
+                    alt="My Profile Picture"
+                >
 
             </div>
+
 
         </div>
 
@@ -522,11 +831,16 @@
 
     <section id="about">
 
+
         <div class="section-title">
 
-            <h2>About Me</h2>
+            <h2>
+                About Me
+            </h2>
 
-            <p>Get to know jo</p>
+            <p>
+                Get to know Jo
+            </p>
 
         </div>
 
@@ -534,12 +848,12 @@
         <div class="about-container">
 
             <p>
-                Hi! My name is Joanna Princess B. Rufino a Computer 
-                Science student in St.rose college. 
-                
+                Hi! My name is Joanna Princess B. Rufino
+                a Computer Science student in St.rose college.
             </p>
 
         </div>
+
 
     </section>
 
@@ -548,20 +862,26 @@
          AGILE
     ========================== -->
 
-    <section class="agile-section" id="agile">
+    <section
+        class="agile-section"
+        id="agile"
+    >
+
 
         <div class="section-title">
 
-            <h2>Agile</h2>
+            <h2>
+                Agile
+            </h2>
 
             <p>
-                Agile is a flexible approach to project development that 
-                focuses on completing tasks step by step while continuously 
-                improving the results. I value this approach because it 
-                promotes teamwork, clear communication, adaptability, and learning 
-                from mistakes. It also helps me become more open to changes and find 
-                better ways to achieve my goals.
-
+                Agile is a flexible approach to project development
+                that focuses on completing tasks step by step while
+                continuously improving the results. I value this
+                approach because it promotes teamwork, clear
+                communication, adaptability, and learning from
+                mistakes. It also helps me become more open to
+                changes and find better ways to achieve my goals.
             </p>
 
         </div>
@@ -569,11 +889,18 @@
 
         <div class="agile-container">
 
+
+            <!-- COLLABORATION -->
+
             <div class="agile-card">
 
-                <div class="agile-icon">🤝</div>
+                <div class="agile-icon">
+                    🤝
+                </div>
 
-                <h3>Collaboration</h3>
+                <h3>
+                    Collaboration
+                </h3>
 
                 <p>
                     I value teamwork and communication
@@ -583,11 +910,17 @@
             </div>
 
 
+            <!-- ADAPTABILITY -->
+
             <div class="agile-card">
 
-                <div class="agile-icon">🔄</div>
+                <div class="agile-icon">
+                    🔄
+                </div>
 
-                <h3>Adaptability</h3>
+                <h3>
+                    Adaptability
+                </h3>
 
                 <p>
                     I am willing to adapt to changes
@@ -597,11 +930,17 @@
             </div>
 
 
+            <!-- CONTINUOUS LEARNING -->
+
             <div class="agile-card">
 
-                <div class="agile-icon">💡</div>
+                <div class="agile-icon">
+                    💡
+                </div>
 
-                <h3>Continuous Learning</h3>
+                <h3>
+                    Continuous Learning
+                </h3>
 
                 <p>
                     I continuously improve my knowledge
@@ -611,11 +950,17 @@
             </div>
 
 
+            <!-- FOCUS -->
+
             <div class="agile-card">
 
-                <div class="agile-icon">🎯</div>
+                <div class="agile-icon">
+                    🎯
+                </div>
 
-                <h3>Focus</h3>
+                <h3>
+                    Focus
+                </h3>
 
                 <p>
                     I focus on completing tasks and
@@ -623,6 +968,7 @@
                 </p>
 
             </div>
+
 
         </div>
 
@@ -635,39 +981,57 @@
 
     <section id="hobbies">
 
+
         <div class="section-title">
 
-            <h2>My Hobbies</h2>
+            <h2>
+                My Hobbies
+            </h2>
 
-            <p>Things I enjoy doing</p>
+            <p>
+                Things I enjoy doing
+            </p>
 
         </div>
 
 
         <div class="cards">
 
+
+            <!-- PLAYING GAMES -->
+
             <div class="card">
 
-                <div class="card-icon">🎮</div>
+                <div class="card-icon">
+                    🎮
+                </div>
 
-                <h3>Playing Games</h3>
+                <h3>
+                    Playing Games
+                </h3>
 
                 <p>
-                    I enjoy playing mobile legends or call of duty everytime
-                    im bored or stress, because playing those online games
-                    makes me feel good. But when im offline, my favorite
-                    games is not virtual its physical, i love playing basketball
-                    and volleyball. 
+                    I enjoy playing mobile legends or call of duty
+                    everytime im bored or stress, because playing
+                    those online games makes me feel good. But when
+                    im offline, my favorite games is not virtual its
+                    physical, i love playing basketball and volleyball.
                 </p>
 
             </div>
 
 
+            <!-- MUSIC -->
+
             <div class="card">
 
-                <div class="card-icon">🎧</div>
+                <div class="card-icon">
+                    🎧
+                </div>
 
-                <h3>Listening to Music</h3>
+                <h3>
+                    Listening to Music
+                </h3>
 
                 <p>
                     I really love listening to music specially
@@ -678,11 +1042,17 @@
             </div>
 
 
+            <!-- WATCHING -->
+
             <div class="card">
 
-                <div class="card-icon">💻</div>
+                <div class="card-icon">
+                    💻
+                </div>
 
-                <h3>Watching</h3>
+                <h3>
+                    Watching
+                </h3>
 
                 <p>
                     I love watching movies in netflix, reels in tiktok
@@ -691,6 +1061,7 @@
                 </p>
 
             </div>
+
 
         </div>
 
@@ -703,23 +1074,36 @@
 
     <section id="skills">
 
+
         <div class="section-title">
 
-            <h2>My Skills</h2>
+            <h2>
+                My Skills
+            </h2>
 
-            <p>My current skills</p>
+            <p>
+                My current skills
+            </p>
 
         </div>
 
 
         <div class="skills-container">
 
+
+            <!-- HTML -->
+
             <div class="skill">
 
                 <div class="skill-info">
 
-                    <span>HTML</span>
-                    <span>80%</span>
+                    <span>
+                        HTML
+                    </span>
+
+                    <span>
+                        80%
+                    </span>
 
                 </div>
 
@@ -732,12 +1116,19 @@
             </div>
 
 
+            <!-- CSS -->
+
             <div class="skill">
 
                 <div class="skill-info">
 
-                    <span>CSS</span>
-                    <span>80%</span>
+                    <span>
+                        CSS
+                    </span>
+
+                    <span>
+                        80%
+                    </span>
 
                 </div>
 
@@ -750,12 +1141,19 @@
             </div>
 
 
+            <!-- JAVASCRIPT -->
+
             <div class="skill">
 
                 <div class="skill-info">
 
-                    <span>JavaScript</span>
-                    <span>70%</span>
+                    <span>
+                        JavaScript
+                    </span>
+
+                    <span>
+                        70%
+                    </span>
 
                 </div>
 
@@ -768,12 +1166,19 @@
             </div>
 
 
+            <!-- PYTHON -->
+
             <div class="skill">
 
                 <div class="skill-info">
 
-                    <span>Python</span>
-                    <span>65%</span>
+                    <span>
+                        Python
+                    </span>
+
+                    <span>
+                        65%
+                    </span>
 
                 </div>
 
@@ -784,6 +1189,7 @@
                 </div>
 
             </div>
+
 
         </div>
 
@@ -796,48 +1202,62 @@
 
     <section id="interests">
 
+
         <div class="section-title">
 
-            <h2>My Interests</h2>
+            <h2>
+                My Interests
+            </h2>
 
-            <p>Things that I am interested in</p>
+            <p>
+                Things that I am interested in
+            </p>
 
         </div>
 
 
         <div class="interest-container">
 
+
             <div class="interest">
                 💻 Web Development
             </div>
+
 
             <div class="interest">
                 📱 Technology
             </div>
 
+
             <div class="interest">
                 🎨 Web Design
             </div>
+
 
             <div class="interest">
                 🤖 Artificial Intelligence
             </div>
 
+
             <div class="interest">
                 🔐 Cybersecurity
             </div>
+
 
             <div class="interest">
                 📚 Learning
             </div>
 
+
             <div class="interest">
                 🎮 Gaming
             </div>
 
+
             <div class="interest">
                 🎵 Music
             </div>
+
 
         </div>
 
@@ -851,7 +1271,8 @@
     <footer>
 
         <p>
-            © 2026 My Personal Profile | All Rights Reserved
+            © 2026 My Personal Profile |
+            All Rights Reserved
         </p>
 
     </footer>
@@ -859,4 +1280,3 @@
 
 </body>
 </html>
-```
