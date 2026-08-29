@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,18 +7,12 @@
     <title>MY PORTFOLIO</title>
 
     <style>
+
         /* =========================================================
            BLACK, WHITE & LIGHT PINK PERSONAL PORTFOLIO
-           ========================================================= */
+        ========================================================== */
 
-        :root { 
-            .profile-image img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 8px solid white;
-}
+        :root {
             --black: #050505;
             --dark: #111111;
             --dark-gray: #1b1b1b;
@@ -26,12 +20,16 @@
             --light-gray: #d9d9d9;
             --white: #ffffff;
 
-            /* LIGHT PINK COLORS */
             --pink: #fff1f6;
             --pink-light: #fff8fb;
             --pink-soft: #ffeaf2;
             --pink-dark: #f8d7e3;
         }
+
+
+        /* =========================
+           RESET
+        ========================== */
 
         * {
             margin: 0;
@@ -40,6 +38,11 @@
             scroll-behavior: smooth;
         }
 
+
+        /* =========================
+           BODY
+        ========================== */
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: var(--pink);
@@ -47,10 +50,12 @@
             line-height: 1.7;
         }
 
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
 
         ::selection {
             background: var(--black);
@@ -66,6 +71,7 @@
             width: 100%;
             background: rgba(5, 5, 5, 0.96);
             color: var(--white);
+
             padding: 18px 8%;
 
             display: flex;
@@ -77,8 +83,11 @@
             z-index: 1000;
 
             border-bottom: 1px solid #333;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.15);
         }
+
 
         .logo {
             font-size: 24px;
@@ -87,11 +96,13 @@
             color: var(--white);
         }
 
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 28px;
         }
+
 
         .nav-links a {
             color: #fff;
@@ -101,6 +112,7 @@
             position: relative;
             transition: 0.3s;
         }
+
 
         .nav-links a::after {
             content: "";
@@ -117,9 +129,11 @@
             transition: 0.3s;
         }
 
+
         .nav-links a:hover {
             color: #ccc;
         }
+
 
         .nav-links a:hover::after {
             width: 100%;
@@ -155,6 +169,7 @@
             overflow: hidden;
         }
 
+
         .hero::before {
             content: "";
 
@@ -170,6 +185,7 @@
             bottom: -180px;
         }
 
+
         .hero-container {
             max-width: 1100px;
             width: 100%;
@@ -184,9 +200,15 @@
             z-index: 1;
         }
 
+
+        /* =========================
+           HERO TEXT
+        ========================== */
+
         .hero-text {
             flex: 1;
         }
+
 
         .hero-text h4 {
             color: #555;
@@ -198,6 +220,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
         }
+
 
         .hero-text h1 {
             font-size: 58px;
@@ -211,11 +234,13 @@
             font-weight: 800;
         }
 
+
         .hero-text h1 span {
             color: var(--black);
 
             border-bottom: 5px solid var(--black);
         }
+
 
         .hero-text p {
             font-size: 18px;
@@ -249,6 +274,7 @@
             transition: 0.3s;
         }
 
+
         .btn:hover {
             background: var(--white);
             color: var(--black);
@@ -269,7 +295,9 @@
 
             display: flex;
             justify-content: center;
+            align-items: center;
         }
+
 
         .profile-image img {
             width: 310px;
@@ -279,12 +307,14 @@
 
             border-radius: 50%;
 
-            border: 8px solid var(--black);
+            border: 8px solid var(--white);
 
             box-shadow:
                 14px 14px 0 #bdbdbd;
 
             filter: grayscale(100%);
+
+            display: block;
         }
 
 
@@ -296,15 +326,18 @@
             padding: 90px 8%;
         }
 
+
         section:nth-of-type(even) {
             background: #ffe7f0;
         }
+
 
         .section-title {
             text-align: center;
 
             margin-bottom: 50px;
         }
+
 
         .section-title h2 {
             font-size: 38px;
@@ -317,6 +350,7 @@
 
             letter-spacing: 2px;
         }
+
 
         .section-title p {
             color: #777;
@@ -346,6 +380,7 @@
             text-align: center;
         }
 
+
         .about-container p {
             color: #444;
 
@@ -363,9 +398,11 @@
             color: var(--white);
         }
 
+
         .agile-section .section-title h2 {
             color: var(--white);
         }
+
 
         .agile-section .section-title p {
             color: #bdbdbd;
@@ -374,6 +411,7 @@
 
             margin: auto;
         }
+
 
         .agile-container {
             max-width: 1100px;
@@ -387,6 +425,7 @@
 
             gap: 20px;
         }
+
 
         .agile-card {
             background: #111;
@@ -402,6 +441,7 @@
             border: 1px solid #444;
         }
 
+
         .agile-card:hover {
             transform: translateY(-8px);
 
@@ -412,6 +452,7 @@
             border-color: var(--white);
         }
 
+
         .agile-icon {
             font-size: 40px;
 
@@ -420,15 +461,18 @@
             filter: grayscale(100%);
         }
 
+
         .agile-card h3 {
             margin-bottom: 10px;
         }
+
 
         .agile-card p {
             font-size: 14px;
 
             color: #bbb;
         }
+
 
         .agile-card:hover p {
             color: #444;
@@ -452,6 +496,7 @@
             gap: 25px;
         }
 
+
         .card {
             background: var(--white);
 
@@ -469,6 +514,7 @@
             transition: 0.3s;
         }
 
+
         .card:hover {
             transform: translateY(-8px);
 
@@ -480,6 +526,7 @@
                 8px 8px 0 #888;
         }
 
+
         .card-icon {
             font-size: 45px;
 
@@ -488,15 +535,18 @@
             filter: grayscale(100%);
         }
 
+
         .card h3 {
             margin-bottom: 10px;
 
             color: var(--black);
         }
 
+
         .card p {
             color: #666;
         }
+
 
         .card:hover h3,
         .card:hover p {
@@ -514,9 +564,11 @@
             margin: auto;
         }
 
+
         .skill {
             margin-bottom: 28px;
         }
+
 
         .skill-info {
             display: flex;
@@ -527,6 +579,7 @@
 
             font-weight: bold;
         }
+
 
         .progress {
             height: 13px;
@@ -540,6 +593,7 @@
             overflow: hidden;
         }
 
+
         .progress-bar {
             height: 100%;
 
@@ -549,6 +603,7 @@
 
             position: relative;
         }
+
 
         .progress-bar::after {
             content: "";
@@ -567,17 +622,21 @@
                 );
         }
 
+
         .html {
             width: 80%;
         }
+
 
         .css {
             width: 80%;
         }
 
+
         .javascript {
             width: 70%;
         }
+
 
         .python {
             width: 65%;
@@ -602,6 +661,7 @@
             gap: 15px;
         }
 
+
         .interest {
             background: var(--white);
 
@@ -617,6 +677,7 @@
 
             font-weight: 600;
         }
+
 
         .interest:hover {
             background: var(--black);
@@ -643,6 +704,7 @@
             border-top: 1px solid #333;
         }
 
+
         footer p {
             color: #ccc;
         }
@@ -655,10 +717,23 @@
         @media (max-width: 900px) {
 
             .hero-container {
-                flex-direction: column-reverse;
+                flex-direction: column;
 
                 text-align: center;
+
+                gap: 40px;
             }
+
+
+            .hero-text {
+                order: 2;
+            }
+
+
+            .profile-image {
+                order: 1;
+            }
+
 
             .hero-text p {
                 margin-left: auto;
@@ -666,14 +741,17 @@
                 margin-right: auto;
             }
 
+
             .hero-text h1 {
                 font-size: 44px;
             }
+
 
             .agile-container {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
+
 
             .cards {
                 grid-template-columns:
@@ -690,6 +768,12 @@
                 gap: 15px;
             }
 
+
+            .logo {
+                font-size: 22px;
+            }
+
+
             .nav-links {
                 gap: 14px;
 
@@ -698,40 +782,97 @@
                 justify-content: center;
             }
 
-            .hero {
-                padding: 55px 5%;
+
+            .nav-links a {
+                font-size: 14px;
             }
+
+
+            .hero {
+                min-height: auto;
+
+                padding: 60px 5%;
+            }
+
+
+            .hero-container {
+                flex-direction: column;
+
+                gap: 35px;
+            }
+
+
+            .profile-image {
+                width: 100%;
+            }
+
 
             .profile-image img {
                 width: 220px;
                 height: 220px;
+
+                border-width: 6px;
+
+                box-shadow:
+                    10px 10px 0 #bdbdbd;
             }
+
+
+            .hero-text h4 {
+                font-size: 16px;
+
+                letter-spacing: 2px;
+            }
+
 
             .hero-text h1 {
                 font-size: 35px;
             }
 
+
             .hero-text h1 span {
                 border-bottom-width: 3px;
             }
+
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+
+            .btn {
+                font-size: 15px;
+
+                padding: 12px 20px;
+            }
+
 
             .agile-container,
             .cards {
                 grid-template-columns: 1fr;
             }
 
+
             section {
                 padding: 65px 5%;
             }
+
 
             .section-title h2 {
                 font-size: 29px;
             }
 
+
             .about-container {
                 padding: 28px 20px;
             }
+
+
+            .about-container p {
+                font-size: 16px;
+            }
         }
+
     </style>
 </head>
 
@@ -746,8 +887,9 @@
     <nav>
 
         <div class="logo">
-            MY PORFOLIO
+            MY PORTFOLIO
         </div>
+
 
         <ul class="nav-links">
 
@@ -757,6 +899,10 @@
 
             <li>
                 <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#agile">Agile</a>
             </li>
 
             <li>
@@ -776,6 +922,7 @@
     </nav>
 
 
+
     <!-- =========================
          HOME / PROFILE
     ========================== -->
@@ -785,45 +932,45 @@
         <div class="hero-container">
 
 
+            <!-- PROFILE IMAGE -->
+
+            <div class="profile-image">
+
+                <img
+                    src="profile.jpg"
+                    alt="Jo's Profile Picture"
+                >
+
+            </div>
+
+
+
+            <!-- HERO TEXT -->
+
             <div class="hero-text">
 
                 <h4>
                     Hello, I'm Jo
                 </h4>
 
+
                 <h1>
                     <span>
-                        Computer science student
+                        Computer Science Student
                     </span>
                 </h1>
 
+
                 <p>
-                    Welcome to my personal porfolio.
+                    Welcome to my personal portfolio.
                     I am a student who enjoys learning new things,
                     developing my skills, and exploring new ideas.
                 </p>
 
+
                 <a href="#about" class="btn">
                     Come and explore my website
                 </a>
-
-            </div>
-
-
-            <div class="profile-image">
-
-                <!--
-                    <div class="profile-image">
-
-    <img src="profile.jpg" alt="My Profile Picture">
-
-</div>
-                -->
-
-                <img
-                    src="profile.jpg"
-                    alt="My Profile Picture"
-                >
 
             </div>
 
@@ -833,12 +980,12 @@
     </section>
 
 
+
     <!-- =========================
          ABOUT ME
     ========================== -->
 
     <section id="about">
-
 
         <div class="section-title">
 
@@ -856,14 +1003,14 @@
         <div class="about-container">
 
             <p>
-                Hi! My name is Joanna Princess B. Rufino
-                a Computer Science student in St.rose college.
+                Hi! My name is Joanna Princess B. Rufino,
+                a Computer Science student in St. Rose College.
             </p>
 
         </div>
 
-
     </section>
+
 
 
     <!-- =========================
@@ -874,7 +1021,6 @@
         class="agile-section"
         id="agile"
     >
-
 
         <div class="section-title">
 
@@ -918,6 +1064,7 @@
             </div>
 
 
+
             <!-- ADAPTABILITY -->
 
             <div class="agile-card">
@@ -938,6 +1085,7 @@
             </div>
 
 
+
             <!-- CONTINUOUS LEARNING -->
 
             <div class="agile-card">
@@ -956,6 +1104,7 @@
                 </p>
 
             </div>
+
 
 
             <!-- FOCUS -->
@@ -983,12 +1132,12 @@
     </section>
 
 
+
     <!-- =========================
          HOBBIES
     ========================== -->
 
     <section id="hobbies">
-
 
         <div class="section-title">
 
@@ -1019,14 +1168,15 @@
                 </h3>
 
                 <p>
-                    I enjoy playing mobile legends or call of duty
-                    everytime im bored or stress, because playing
+                    I enjoy playing Mobile Legends or Call of Duty
+                    everytime I'm bored or stressed, because playing
                     those online games makes me feel good. But when
-                    im offline, my favorite games is not virtual its
-                    physical, i love playing basketball and volleyball.
+                    I'm offline, my favorite games are not virtual.
+                    I love playing basketball and volleyball.
                 </p>
 
             </div>
+
 
 
             <!-- MUSIC -->
@@ -1042,12 +1192,13 @@
                 </h3>
 
                 <p>
-                    I really love listening to music specially
-                    when i do something like task. It makes me
+                    I really love listening to music especially
+                    when I do something like a task. It makes me
                     enjoy more and music gives me energy.
                 </p>
 
             </div>
+
 
 
             <!-- WATCHING -->
@@ -1063,9 +1214,10 @@
                 </h3>
 
                 <p>
-                    I love watching movies in netflix, reels in tiktok
-                    or facebook. thats what im doing when i have no one
-                    to talk to. I love watching specially when im bored.
+                    I love watching movies on Netflix, reels on TikTok
+                    or Facebook. That's what I'm doing when I have no
+                    one to talk to. I love watching especially when
+                    I'm bored.
                 </p>
 
             </div>
@@ -1076,12 +1228,12 @@
     </section>
 
 
+
     <!-- =========================
          SKILLS
     ========================== -->
 
     <section id="skills">
-
 
         <div class="section-title">
 
@@ -1124,6 +1276,7 @@
             </div>
 
 
+
             <!-- CSS -->
 
             <div class="skill">
@@ -1149,6 +1302,7 @@
             </div>
 
 
+
             <!-- JAVASCRIPT -->
 
             <div class="skill">
@@ -1172,6 +1326,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- PYTHON -->
@@ -1204,12 +1359,12 @@
     </section>
 
 
+
     <!-- =========================
          INTERESTS
     ========================== -->
 
     <section id="interests">
-
 
         <div class="section-title">
 
@@ -1270,6 +1425,7 @@
         </div>
 
     </section>
+
 
 
     <!-- =========================
